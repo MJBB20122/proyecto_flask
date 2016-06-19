@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block cuerpo %}
+	<span class="titulo">Ofertas</span>
+	<br>
+	<table border="0" cellpading="0" cellspacing="0">
+	{% for registro in registros %}
+	<tr class="registro">
+		<td>{{ registro["nombre"] }}</td>
+		<td><img class="imagen_producto_t" src="{{ url_for("imagen_de_directorio", imagen=registro["imagen"]) }}"></td>
+		<td>{{ registro["oferta"] }}% de descuento</td>
+		<td>$ {{ registro["precio"] }}</td>
+		<td><a href="{{ url_for("ver_articulo", id_articulo=registro["id"]) }}">Ver detalle</a></td>
+	</tr>
+	{% endfor %}
+	</table>
+{% endblock %}

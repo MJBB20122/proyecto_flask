@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block cuerpo %}
+	<span class="titulo">Ingreso</span>
+	<br>
+	<form method="post" action="{{ url_for("log") }}" autocomplete="off">
+		<input name="passw" type="password" placeholder="Contraseña">
+		<br>
+		<input type="submit" value="Ingresar">
+	</form>
+	{% if err == "1" %}
+	<script language="javascript">
+		alert("Error - contreaseña incorrecta");
+	</script>
+	{% endif %}
+{% endblock %}

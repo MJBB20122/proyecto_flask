@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block cuerpo %}
+	{% for campo in detalle %}
+	<span class="titulo">Detalle del producto</span>
+	<br><br>
+	{{ campo['nombre'] }}
+	<br><br>
+	Descripción del articulo: {{ campo['descripcion'] }}
+	<br><br>
+	Precio: ${{ campo['precio'] }}
+	<br><br>
+	¿Esta el producto en oferta?: {% if campo['oferta'] > 0 %} Si, tiene el {{ campo['oferta'] }}% de descuento {% else %} No {% endif %}
+	<br><br>
+	Imagen ilustrativa del producto:<br>
+	<img src="/img/{{ campo['imagen'] }}" style="with: 500px; height: 500px">
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block cuerpo %}
+	<br>
+	{% if formulario == "listado" %}
+		<span class="titulo">Listado de productos</span>
+		<br><br>
+		<a href="{{ url_for("gestion_r", f="n_datos") }}">Nuevo producto</a>
+		<br><br>
+		<table border="0" cellpading="0" cellspacing="0">
+			<tr>
+				<td>ID</td>
+				<td>Nombre</td>
+				<td>Descripcion</td>
+				<td>Precio</td>
+				<td>% oferta</td>
+				<td>Imagen</td>
+				<td>En existencia</td>
+				<td></td>
+			</tr>
+			{% for registro in listado %}
+			<tr class="registro">
+				<td>{{ registro["id"] }}</td>
+				<td>{{ registro["nombre"] }}</td>
+				<td>{{ registro["descripcion"] }}</td>
+				<td>$ {{ registro["precio"] }}</td>
+				<td>{{ registro["oferta"] }}</td>
+				<td><img class="imagen_producto_t" src="{{ url_for("imagen_de_directorio", imagen=registro["imagen"]) }}"></td>
+				<td>
+					{% if registro["existencia"] == "true" %}
+					Si
+					{% else %}
+					No
+					{% endif %}
+				</td>
+				<td><a href="{{ url_for("gestion_s", f="datos", id_a=registro['id']) }}">Editar datos</a><br><a href="{{ url_for("gestion_s", f="imagen", id_a=registro['id']) }}">Editar imagen</a><br><a href="#" onclick="borrar_registro('{{ registro['id'] }}')">Eliminar</a></td>
+			</tr>
+			{% endfor %}
+	</table>
+	{% endif %}
+	{% if formulario == "nuevo" %}
+		<span class="titulo">Nuevo producto</span>
+		<form method="post" action="{{ url_for("gestion_r", f="nuevo_p") }}" autocomplete="off">
+			<table border="0">
+			<tr><td>Nombre:</td><td><input type="text" name="nombre"></td></tr>
+			<tr><td>Descripción:</td><td><input type="text" name="descripcion"></td></tr>
+			<tr><td>Precio:</td><td><input type="number" min="0" name="precio"></td></tr>
+			<tr><td>Oferta:</td><td><input type="number" min="0" max="100" name="oferta"></td></tr>
+			<tr><td>Existencia:</td><td><input type="radio" name="existencia" value="true" checked> Si - <input type="radio" name="existencia" value="false"> No</td></tr>
+			</table>
+			<input type="submit" value="Agregar">
+		</form>
+	{% endif %}
+	{% if formulario == "datos" %}
+		<span class="titulo">Actualizar datos</span>
+		<form method="post" action="{{ url_for("gestion_r", f="up") }}" autocomplete="off">
+			{% for dato in datos %}
+			<table border="0">
+			<tr><td>ID:</td><td><input type="text" name="id_a" value="{{ dato['id'] }}" readonly></td></tr>
+			<tr><td>Nombre:</td><td><input type="text" name="nombre" value="{{ dato['nombre'] }}"></td></tr>
+			<tr><td>Descripción:</td><td><input type="text" name="descripcion" value="{{ dato['descripcion'] }}"></td></tr>
+			<tr><td>Precio:</td><td><input type="number" min="0.01" name="precio" value="{{ dato['precio'] }}"></td></tr>
+			<tr><td>Oferta:</td><td><input type="number" min="0" max="100" name="oferta" value="{{ dato['oferta'] }}"></td></tr>
+			<tr><td>Existencia:</td><td><input type="radio" name="existencia" value="true" checked> Si - <input type="radio" name="existencia" value="false"> No</td></tr>
+			</table>
+			<input type="submit" value="Actualizar">
+			{% endfor %}
+		</form>
+	{% endif %}
+	{% if formulario == "imagen" %}
+		<span class="titulo">Cambiar imagen del producto</span>
+		<form method="post" enctype="multipart/form-data" action="{{ url_for("gestion_r", f="imagen") }}" autocomplete="off">
+			<input type="hidden" name="id_producto" value="{{ id_a }}">
+			Seleccione la imagen: <input type="file" name="imagen_p"><br>
+			<input type="submit" value="Guardar imagen">
+		</form>
+	{% endif %}
+	<br><br>
+	<a href="{{ url_for('logout') }}">Cerrar sesion</a>
+{% endblock %}

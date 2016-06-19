@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Comercial dinora - Catalogo de productos</title>
+		<link rel="stylesheet" media="all" href="{{ url_for('static', filename='style.css') }}">
+		<script language="javascript">
+			function borrar_registro(n)
+			{
+				if (confirm("¿Desea eliminar el producto?"))
+					{
+						location.href="/gestion/eliminar?id_p=" + n
+					}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="encabezado">
+		Comercial Dinora
+		</div>
+		<div id="cuerpo">
+		<div id="menu">
+			<a href="{{ url_for("inicio") }}">Pagina principal</a> |
+			<a href="{{ url_for("ofertas") }}">Ofertas</a> |
+			<a href="{{ url_for("informacion") }}">Información</a> |
+			<a href="{{ url_for("acerca") }}">Acerca de</a> |
+			<a href="{{ url_for("gestion") }}">Gestión</a>
+			
+		</div>
+		<div id="contenido">
+			{% block cuerpo %} {% endblock %}
+		</div>
+	</div>
+	</body>
+</html>
