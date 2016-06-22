@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title>Comercial dinora - Catalogo de productos</title>
+		<title>Comercial "El Kevin" - Catalogo de productos</title>
 		<link rel="stylesheet" media="all" href="{{ url_for('static', filename='style.css') }}">
 		<script language="javascript">
 			function borrar_registro(n)
@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<div id="encabezado">
-		Comercial Dinora
+		Comercial "El Kevin"
 		</div>
 		<div id="cuerpo">
 		<div id="menu">
@@ -28,6 +28,9 @@
 		</div>
 		<div id="contenido">
 			{% block cuerpo %} {% endblock %}
+		</div>
+		<div id="pie">
+			Información general de contacto
 		</div>
 	</div>
 	</body>

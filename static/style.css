@@ -8,6 +8,7 @@
 		position: relative;
 		margin: 0 auto;
 		width: 1280px;
+		font-family: cantarell;
 	}
 #encabezado
 	{
@@ -26,7 +27,7 @@
 		background-color: #2B81D6;
 		text-align: center;
 		color: #FFF;
-		height: 25px;
+		height: 27px;
 	}
 #menu a
 	{
@@ -35,11 +36,14 @@
 		background-color: #2B81D6;
 		color: #FFF;
 		padding: 3px 4px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
 		transition: all 1s;
+		
 	}
 #menu a:hover
 	{
-		background-color: #5696D6;
+		background-color: #9ECFFF;
 	}
 #contenido
 	{
@@ -49,10 +53,13 @@
 #contenido table
 	{
 		margin: 0 auto;
+		padding-bottom: 10px;
 	}
-#contenido table td
+.tablas td
 	{
 		border-bottom: 1px solid #ddd;
+		text-align: left;
+		padding-right: 10px; 
 	}
 #contenido a
 	{
@@ -60,11 +67,22 @@
 		text-decoration: none;
 		color: #FFF;
 		background-color: #2B81D6;
+		border: 1px solid #2B81D6;
 		padding: 5px 6px;
 		margin-left: 4px;
 		margin-bottom: 5px;
 		border-radius: 5px;
-		box-shadow: inset 0px 1px 3px #FFF;
+		box-shadow: inset 0px 1px 3px #96CBFF;
+	}
+#pie
+	{
+	position: relative;
+	margin: 0 auto;
+	width: 1280px;
+	padding: 20px 0px;
+	text-align: center;
+	color: #FFF;
+	background-color: #000;
 	}
 .imagen_producto_t
 	{
@@ -74,4 +92,28 @@
 .titulo
 	{
 		font-size: 22px;
+	}
+input[type*="text"], input[type*="number"], input[type*="password"], input[type*="file"]
+	{
+		padding: 3px;
+		width: 200px;
+		color: #555;
+		border: 1px solid #555;
+		border-radius: 4px;
+		margin-bottom: 3px
+	}
+input[type*="file"]
+	{
+		width: 400px !important;
+	}
+input[type*="submit"]
+	{
+		color: #FFF;
+		background-color: #2B81D6;
+		border: 1px solid #2B81D6;
+		padding: 3px 6px;
+		margin-left: 4px;
+		margin-bottom: 5px;
+		border-radius: 5px;
+		box-shadow: inset 0px 1px 3px #96CBFF;
 	}

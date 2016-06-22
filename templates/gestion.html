@@ -6,7 +6,7 @@
 		<br><br>
 		<a href="{{ url_for("gestion_r", f="n_datos") }}">Nuevo producto</a>
 		<br><br>
-		<table border="0" cellpading="0" cellspacing="0">
+		<table border="0" cellpading="0" cellspacing="0" class="tablas">
 			<tr>
 				<td>ID</td>
 				<td>Nombre</td>
@@ -47,6 +47,7 @@
 			<tr><td>Oferta:</td><td><input type="number" min="0" max="100" name="oferta"></td></tr>
 			<tr><td>Existencia:</td><td><input type="radio" name="existencia" value="true" checked> Si - <input type="radio" name="existencia" value="false"> No</td></tr>
 			</table>
+			<br><br>
 			<input type="submit" value="Agregar">
 		</form>
 	{% endif %}
@@ -62,6 +63,7 @@
 			<tr><td>Oferta:</td><td><input type="number" min="0" max="100" name="oferta" value="{{ dato['oferta'] }}"></td></tr>
 			<tr><td>Existencia:</td><td><input type="radio" name="existencia" value="true" checked> Si - <input type="radio" name="existencia" value="false"> No</td></tr>
 			</table>
+			<br><br>
 			<input type="submit" value="Actualizar">
 			{% endfor %}
 		</form>
