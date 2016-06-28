@@ -4,7 +4,7 @@ import sqlite3 as sql
 import requests
 import os
 import time
-UPLOAD_FOLDER = '/home/user/proyecto/aplicacion/imagenes'
+UPLOAD_FOLDER = '/home/benavides/Flask_Tarea/proyecto_flask/imagenes'
 ALL_EXTEN = 'png,jpg,jpeg,gif'
 app = Flask(__name__)
 app.config.update(
