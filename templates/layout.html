@@ -5,12 +5,26 @@
 		<link rel="stylesheet" media="all" href="{{ url_for('static', filename='style.css') }}">
 		<script language="javascript">
 			function borrar_registro(n)
-			{
-				if (confirm("¿Desea eliminar el producto?"))
-					{
-						location.href="/gestion/eliminar?id_p=" + n
-					}
-			}
+				{
+					if (confirm("¿Desea eliminar el producto?"))
+						{
+							location.href="/gestion/eliminar?id_p=" + n
+						}
+				}
+			function posicion(event)
+				{
+					var x = event.clientX;
+					var y = event.clientY;
+					var ampliado = document.getElementById("miniatura");
+					var posampliado = ampliado.getBoundingClientRect();
+					document.getElementById("ampliado").style.top = parseInt((posampliado.top - y) * 1.5) + "px"
+					document.getElementById("ampliado").style.left = parseInt((posampliado.left - x) * 1.5) + "px"
+				}
+			function limpiar()
+				{
+					document.getElementById("ampliado").style.top = "200px"
+					document.getElementById("ampliado").style.left = "200px"
+				}
 		</script>
 	</head>
 	<body>

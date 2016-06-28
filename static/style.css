@@ -76,13 +76,14 @@
 	}
 #pie
 	{
-	position: relative;
-	margin: 0 auto;
-	width: 1280px;
-	padding: 20px 0px;
-	text-align: center;
-	color: #FFF;
-	background-color: #000;
+		position: relative;
+		margin: 0 auto;
+		width: 1280px;
+		padding: 20px 0px;
+		text-align: center;
+		color: #FFF;
+		background-color: #000;
+		clear: both;
 	}
 .imagen_producto_t
 	{
@@ -92,6 +93,38 @@
 .titulo
 	{
 		font-size: 22px;
+	}
+#miniatura
+	{
+		max-height: 200px;
+		max-width: 200px;
+	}
+#iz
+	{
+		float: left;
+		margin-left: 300px;
+	}
+#de
+	{
+		float: left;
+	}
+#apl
+	{
+		margin-left: 150px;
+		margin-top: 100px;
+		width: 200px;
+		height: 200px;
+		overflow: hidden;
+	}
+#ampliado
+	{
+		position: relative;
+		top: 200px;
+		left: 200px;
+		min-width: 500px;
+		min-width: 500px;
+		max-width: 500px;
+		max-width: 500px;
 	}
 input[type*="text"], input[type*="number"], input[type*="password"], input[type*="file"]
 	{

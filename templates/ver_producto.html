@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block cuerpo %}
 	{% for campo in detalle %}
+	<div id="iz">
 	<span class="titulo">Detalle del producto</span>
 	<br><br>
 	{{ campo['nombre'] }}
@@ -12,6 +13,12 @@
 	¿Esta el producto en oferta?: {% if campo['oferta'] > 0 %} Si, tiene el {{ campo['oferta'] }}% de descuento {% else %} No {% endif %}
 	<br><br>
 	Imagen ilustrativa del producto:<br>
-	<img src="/img/{{ campo['imagen'] }}" style="with: 500px; height: 500px">
+	<img id="miniatura" onmousemove="posicion(event)" onmouseout="limpiar()" src="/img/{{ campo['imagen'] }}">
+	</div>
+	<div id="de">
+		<div id="apl">
+			<img src="/img/{{ campo['imagen'] }}" id="ampliado">
+		</div>
+	</div>
 	{% endfor %}
 {% endblock %}
